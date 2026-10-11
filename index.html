@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2a5549">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob: data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; font-src 'none'; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta name="description" content="14日×4本の音声を、続きから。端末内に保存してオフラインで学ぶSG音声学習プレーヤー。">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="SG Listening">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="referrer" content="no-referrer">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<title>SG Listening｜14日間の音声学習</title>
+<link rel="stylesheet" href="./app.css">
+</head>
+<body>
+<a class="skip-link" href="#mainContent">学習内容へ移動</a>
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg"><defs>
+<symbol id="i-headphones" viewBox="0 0 24 24"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="12" width="4" height="8" rx="2"/><rect x="17" y="12" width="4" height="8" rx="2"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+<symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-4-6 4z"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><path d="m9.5 3-.8 2.2-2 .9L4.5 6 3 8.5l1.4 1.8v2.4L3 14.5 4.5 17l2.2-.1 2 .9.8 2.2h3l.8-2.2 2-.9 2.2.1 1.5-2.5-1.4-1.8v-2.4L19 8.5 17.5 6l-2.2.1-2-.9L12.5 3z"/><circle cx="11" cy="11.5" r="3"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7z" fill="currentColor" stroke-width="1"/></symbol>
+<symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke-width="4"/></symbol>
+<symbol id="i-next" viewBox="0 0 24 24"><path d="m5 5 10 7-10 7z" fill="currentColor" stroke-width="1"/><path d="M19 5v14" stroke-width="2"/></symbol>
+<symbol id="i-prev" viewBox="0 0 24 24"><path d="m19 5-10 7 10 7z" fill="currentColor" stroke-width="1"/><path d="M5 5v14" stroke-width="2"/></symbol>
+<symbol id="i-left" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></symbol><symbol id="i-right" viewBox="0 0 24 24"><path d="m10 6 6 6-6 6"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></symbol>
+<symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M4 16v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h4l3 3h7a2 2 0 0 1 2 2v2M3 7h15a2 2 0 0 1 2 2l-2 10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M4 17v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M5 6l1 14h12l1-14M10 10v6M14 10v6"/></symbol>
+<symbol id="i-edit" viewBox="0 0 24 24"><path d="m15 4 5 5M4 16 16 4a2 2 0 0 1 3 0l1 1a2 2 0 0 1 0 3L8 20l-5 1z"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+<symbol id="i-back15" viewBox="0 0 24 24"><path d="M5 7a8 8 0 1 1-1 8M5 3v5h5"/></symbol>
+<symbol id="i-forward15" viewBox="0 0 24 24"><path d="M19 7a8 8 0 1 0 1 8M19 3v5h-5"/></symbol>
+<symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zM17 8a7 7 0 0 1 0 8M20 5a11 11 0 0 1 0 14"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14a9 9 0 0 1-10.5-10.5A9 9 0 1 0 20.5 14z"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+<symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4M3 10V8a2 2 0 0 1 2-2h16M7 22l-4-4 4-4M21 14v2a2 2 0 0 1-2 2H3"/></symbol>
+</defs></svg>
+<div id="appShell">
+<aside class="sidebar" aria-label="コースナビゲーション">
+  <div class="brand"><div class="brand-mark"><svg class="icon"><use href="#i-headphones"/></svg></div><div><div class="brand-name">SG Listening<span style="color:#86a074">.</span></div><div class="brand-sub">14日間の音声学習</div></div></div>
+  <nav class="main-nav"><button class="nav-item active" data-action="home" id="navHome"><svg class="icon"><use href="#i-grid"/></svg>学習ホーム</button><button class="nav-item" data-action="review" id="navReview"><svg class="icon"><use href="#i-bookmark"/></svg>復習リスト<span class="count" id="reviewCount">0</span></button></nav>
+  <div class="side-course"><div class="side-heading"><span class="eyebrow">YOUR COURSE</span><span>14 DAYS</span></div><div class="day-grid" id="dayGrid"></div></div>
+  <div class="side-footer"><div class="foot-title"><svg class="icon"><use href="#i-lock"/></svg>このブラウザに保存</div>音声・学習記録の外部送信なし<br>SG Listening · v2.0 PWA</div>
+</aside>
+<main class="main" id="mainContent" tabindex="-1"><div class="main-inner">
+ <header class="topbar"><div class="eyebrow">INFORMATION SECURITY · AUDIO LEARNING</div><div class="mobile-brand"><svg class="icon"><use href="#i-headphones"/></svg>SG Listening.</div><div class="topbar-right"><span class="local-label"><span class="dot"></span>端末内保存</span><button class="btn ghost small" data-action="review" id="mobileReview" aria-label="復習リストを開く" title="復習リスト"><svg class="icon"><use href="#i-bookmark"/></svg></button><button class="btn ghost small" data-action="admin" id="manageButton"><svg class="icon"><use href="#i-gear"/></svg>管理</button></div></header>
+ <div id="platformNotice" class="platform-notice" hidden role="status"></div>
+ <div id="learnView">
+  <div class="page-heading"><div><h1 id="pageTitle">耳で学ぶ、14日間。</h1><p id="pageSubtitle">ひとつずつ聞く。少しずつ、身につける。</p></div><div class="search-wrap"><svg class="icon"><use href="#i-search"/></svg><input id="searchInput" type="search" placeholder="音声を検索" aria-label="全14日から音声を検索" autocomplete="off"></div></div>
+     <div class="mobile-day-label"><span>学習する日</span><button class="quiet-link" data-action="setup" id="offlineQuickStatus">オフライン準備中</button></div>
+   <div class="mobile-days" id="mobileDays" hidden></div>
+  <div id="heroGrid" class="hero-grid"></div>
+  <div id="reviewIntro" hidden></div>
+  <div class="section-heading"><div><h2 id="listHeading">この日の音声<span class="subtitle" id="listSubtitle"></span></h2></div><div id="daySwitch" class="day-switch"><button class="icon-btn" id="previousDay" data-action="prev-day" aria-label="前の日"><svg class="icon"><use href="#i-left"/></svg></button><span id="dayCounter">01 / 14</span><button class="icon-btn" id="nextDay" data-action="next-day" aria-label="次の日"><svg class="icon"><use href="#i-right"/></svg></button></div></div>
+  <div class="track-list" id="trackList"></div>
+  <div class="quiet-tip" id="firstTip" hidden><svg class="icon"><use href="#i-info"/></svg><span>最初の音声登録は、右上の<button data-action="admin">［管理］</button>から。まとめて取り込めます。</span></div>
+  <div class="learning-foot"><span><svg class="icon"><use href="#i-bookmark"/></svg>気になる音声は、復習リストへ。</span><span>Space：再生・停止　← →：15秒戻る・進む</span></div>
+ </div>
+ <section id="adminView" hidden aria-label="音声管理">
+  <div class="admin-head"><div><h1>音声管理</h1><p>最初にまとめて入れて、あとは学習に集中。</p></div><button class="btn small" data-action="home"><svg class="icon"><use href="#i-left"/></svg>学習へ戻る</button></div>
+  <nav class="admin-tabs" aria-label="管理メニュー"><button class="admin-tab active" data-action="admin-tab" data-tab="import">音声を取り込む</button><button class="admin-tab" data-action="admin-tab" data-tab="library">ライブラリの編集</button><button class="admin-tab" data-action="admin-tab" data-tab="backup">保存・引き継ぎ</button><button class="admin-tab" data-action="admin-tab" data-tab="setup">スマホ・設定</button></nav>
+  <div id="adminImport">
+   <div class="dropzone" id="dropzone"><div class="upload-icon"><svg class="icon"><use href="#i-upload"/></svg></div><h2>音声をまとめて取り込む</h2><p>14日分をまとめてでも、できた分だけでも。</p><div class="drop-buttons"><button class="btn primary" data-action="pick-files"><svg class="icon"><use href="#i-upload"/></svg>ファイルを選ぶ</button><button class="btn" data-action="pick-folder"><svg class="icon"><use href="#i-folder"/></svg>フォルダごと選ぶ</button></div><small>WAV / MP3 / M4A / AAC / OGG / FLAC / WebM など · 合計56枠<br>再生可否は音声のコーデックとブラウザに依存します。</small></div>
+   <div class="admin-note">名前に日・順番があると自動で割り当てます。例：<code>day01_01_CIA.wav</code>、<code>01-02_リスク.mp3</code>、<code>1日目_3本目.wav</code><br><code>day01</code> フォルダ内の <code>01_CIA.wav</code> にも対応。判定できないものは名前順で空き枠に仮置きします。<strong>保存前に割り当てを確認してください。</strong></div>
+   <section id="stagePanel" class="panel" hidden><div class="stage-toolbar"><h2 id="stageHeading">取り込み前の確認</h2><div class="stage-actions"><button class="btn ghost small" data-action="stage-sequential">名前順で空き枠に並べ直す</button><button class="btn ghost small" data-action="stage-clear">選択を取り消す</button></div></div><div id="stageWarning" class="stage-warning" hidden></div><div class="table-scroll"><table><thead><tr><th>ファイル</th><th>日</th><th>順番</th><th>表示するタイトル</th><th>確認</th><th></th></tr></thead><tbody id="stageBody"></tbody></table></div><div class="stage-bottom"><label class="checklabel" id="overwriteLabel" hidden><input type="checkbox" id="allowOverwrite">同じ枠の登録済み音声を置き換える</label><span id="stageSummary" class="muted" style="font-size:11px"></span><button class="btn primary" id="commitButton" data-action="commit-import"><svg class="icon"><use href="#i-check"/></svg>確認して保存</button></div></section>
+   <div class="callout">音声はこの端末・このブラウザの保存領域にコピーされます。初回の取り込み後は、元ファイルを毎回選ぶ必要はありません。元の音声ファイルは削除せず保管してください。</div>
+  </div>
+  <div id="adminLibrary" hidden></div>
+     <div id="adminBackup" hidden></div>
+   <div id="adminSetup" hidden></div>
+ </section>
+</div></main>
+<footer class="player" aria-label="音声プレーヤー">
+ <div class="now-info"><div class="now-art" id="nowArt"><svg class="icon"><use href="#i-headphones"/></svg></div><div class="now-copy"><div class="now-kicker" id="nowKicker">READY WHEN YOU ARE</div><div class="now-title" id="nowTitle">聞きたい音声を選んでください</div><div class="now-review" id="nowHint">再生位置は自動で保存されます</div></div></div>
+ <div class="transport"><div class="transport-buttons"><button class="icon-btn" id="prevTrackButton" data-action="prev-track" aria-label="前の音声" disabled><svg class="icon"><use href="#i-prev"/></svg></button><button class="icon-btn skip-seconds" id="backButton" data-action="back15" aria-label="15秒戻る" disabled><svg class="icon"><use href="#i-back15"/></svg><small>15</small></button><button class="main-play" id="mainPlay" data-action="toggle-play" aria-label="再生" disabled><svg class="icon"><use href="#i-play"/></svg></button><button class="icon-btn skip-seconds" id="forwardButton" data-action="forward15" aria-label="15秒進む" disabled><svg class="icon"><use href="#i-forward15"/></svg><small>15</small></button><button class="icon-btn" id="nextTrackButton" data-action="next-track" aria-label="次の音声" disabled><svg class="icon"><use href="#i-next"/></svg></button></div><div class="timeline"><span id="currentTime">0:00</span><input type="range" min="0" max="100" value="0" step="0.1" id="seekRange" aria-label="再生位置" disabled><span id="totalTime">0:00</span></div></div>
+ <div id="desktopOptionsDock"><div class="player-options" id="playerOptions"><div class="option-row"><label><span class="option-name">速度</span><select id="speedSelect" aria-label="再生速度"><option value="0.75">0.75×</option><option value="1" selected>1.0×</option><option value="1.1">1.1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="1.75">1.75×</option><option value="2">2.0×</option></select></label><label><svg class="icon"><use href="#i-repeat"/></svg><select id="autoSelect" aria-label="連続再生"><option value="day">この日を連続</option><option value="all">全日を連続</option><option value="off">連続再生オフ</option></select></label></div><div class="option-row sleep-row"><span class="sleep-label" id="sleepLabel">自動停止</span><select id="sleepSelect" aria-label="スリープタイマー"><option value="off">しない</option><option value="end">この音声の終わり</option><option value="15">15分後</option><option value="30">30分後</option><option value="45">45分後</option><option value="60">60分後</option></select></div><div class="option-row volume-row"><svg class="icon"><use href="#i-volume"/></svg><input type="range" id="volumeRange" class="volume-slider" min="0" max="1" step="0.05" value="1" aria-label="音量"></div></div></div>
+ <button class="mobile-player-settings" data-action="player-settings" aria-label="再生速度・連続再生・自動停止の設定"><span id="mobilePlaybackSummary">1.0× · 連続</span><svg class="icon"><use href="#i-gear"/></svg></button>
+</footer>
+</div>
+<audio id="audio" preload="auto" playsinline hidden></audio>
+<input type="file" id="fileInput" accept="audio/*,.mp3,.wav,.m4a,.aac,.ogg,.oga,.opus,.flac,.webm,.mp4" multiple hidden>
+<input type="file" id="folderInput" webkitdirectory multiple hidden>
+<input type="file" id="replaceInput" accept="audio/*,.mp3,.wav,.m4a,.aac,.ogg,.oga,.opus,.flac,.webm,.mp4" hidden>
+<input type="file" id="restoreInput" accept=".sgbackup,application/octet-stream" hidden>
+<dialog id="playbackSettingsDialog" class="settings-dialog" aria-labelledby="playbackSettingsTitle"><div class="sheet-handle" aria-hidden="true"></div><div class="settings-heading"><h2 id="playbackSettingsTitle">再生設定</h2><button class="icon-btn" id="closePlaybackSettings" aria-label="再生設定を閉じる"><svg class="icon"><use href="#i-close"/></svg></button></div><div id="mobileOptionsDock"></div><p class="settings-note">設定はこの端末に保存されます。タイマーは現在の再生セッションだけ有効です。画面ロック中はOSによって停止が遅れることがあります。</p><button class="btn primary" id="finishPlaybackSettings">学習に戻る</button></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="busy" class="busy" hidden role="status" aria-live="polite"><div class="busy-box"><div class="spinner"></div><div class="busy-title" id="busyTitle">保存しています</div><div class="busy-detail" id="busyDetail">この画面を閉じないでください。</div></div></div>
+<dialog id="dialog"><h2 id="dialogTitle"></h2><p id="dialogMessage"></p><input type="text" id="dialogInput" hidden maxlength="200"><div class="dialog-actions"><button class="btn" id="dialogCancel">キャンセル</button><button class="btn primary" id="dialogConfirm">確認</button></div></dialog>
+<noscript><div class="fatal-box"><h1>JavaScriptを有効にしてください。</h1><p>このアプリは、ブラウザ内のJavaScriptで音声を保存・再生します。</p></div></noscript>
+<script src="./app.js" defer></script>
+</body>
+</html>
